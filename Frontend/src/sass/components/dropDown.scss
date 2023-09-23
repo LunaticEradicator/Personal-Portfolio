@@ -1,0 +1,51 @@
+@use "../util/" as ut;
+.dropdown__header {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+.dropdown__name {
+  display: flex;
+  align-items: center;
+}
+.dropdown__content {
+  z-index: 1; // else it won't be able to select since main position is relative
+  cursor: pointer;
+  background-color: white;
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  text-align: start;
+  cursor: pointer;
+  color: rgb(42, 165, 69);
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 0.2), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  & > div {
+    transition: 0.3s;
+    @include ut.breakpoint(medium) {
+      padding: 10px;
+      padding-left: 0;
+    }
+    &:hover {
+      background-color: rgb(14, 14, 14);
+      color: white;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.extended {
+  & > div {
+    padding: 10px;
+  }
+  @include ut.breakpoint(large) {
+    position: relative;
+    box-shadow: 1px 1px 3px 2px rgb(0 0 0 / 0.2),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+    margin: 5px;
+  }
+}

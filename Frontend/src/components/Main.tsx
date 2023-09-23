@@ -1,5 +1,10 @@
-import React from "react";
+// import React from "react";
+import { Outlet } from "react-router-dom";
 
 export default function Main() {
-  return <div>Main</div>;
+  return (
+    <Main>
+      <Outlet />
+    </Main>
+  );
 }

@@ -1,0 +1,81 @@
+const projects = [
+  {
+    name: "Rock Paper Scissors",
+    stack: "VanillaJS",
+    image: "/images/1.png",
+    git: "https://github.com/LunaticEradicator/Rock-Paper-Scissors",
+    live: "https://lunaticeradicator.github.io/Rock-Paper-Scissors/",
+  },
+  {
+    name: "Etch A Sketch",
+    stack: "VanillaJS",
+    image: "/images/2.png",
+    git: "https://github.com/LunaticEradicator/Etch-a-Sketch",
+    live: "https://lunaticeradicator.github.io/Etch-a-Sketch/",
+  },
+  {
+    name: "Calculator",
+    stack: "VanillaJS",
+    image: "/images/3.png",
+    git: "https://github.com/LunaticEradicator/Calculator",
+    live: "https://lunaticeradicator.github.io/Calculator/",
+  },
+  {
+    name: "Tic Tac Toe",
+    stack: "VanillaJS",
+    image: "/images/4.png",
+    git: "https://github.com/LunaticEradicator/Tic-Tac-Toe",
+    live: "https://lunaticeradicator.github.io/Tic-Tac-Toe/",
+  },
+  {
+    name: "Library",
+    stack: "VanillaJS",
+    image: "/images/5.png",
+    git: "https://github.com/LunaticEradicator/Library",
+    live: "https://lunaticeradicator.github.io/Library/",
+  },
+  {
+    name: "To-Do",
+    stack: "VanillaJS",
+    image: "/images/6.png",
+    git: "https://github.com/LunaticEradicator/TO-DO-List",
+    live: "https://lunaticeradicator.github.io/TO-DO-List/",
+  },
+  {
+    name: "Weather App",
+    stack: "VanillaJS",
+    image: "/images/7.png",
+    git: "https://github.com/LunaticEradicator/Weather-App",
+    live: "https://lunaticeradicator.github.io/Weather-App/",
+  },
+  {
+    name: "Quizzical",
+    stack: "ReactJS",
+    image: "/images/8.png",
+    git: "https://github.com/LunaticEradicator/Quizzical-App",
+    live: "https://lunaticeradicator.github.io/Quizzical-App/",
+  },
+  {
+    name: "Expense Tracker",
+    stack: "ReactJS",
+    image: "/images/9.png",
+    git: "https://github.com/LunaticEradicator/Management-App",
+    live: "https://lunaticeradicator.github.io/Management-App/",
+  },
+  {
+    name: "E-Commerce",
+    stack: "MERN",
+    image: "/images/10.png",
+    git: "https://github.com/LunaticEradicator/E-Commerce-Site",
+    live: "https://e-commerce-jh2z.onrender.com/",
+  },
+  {
+    name: "Personal Portfolio",
+    stack: "MERN",
+    image: "/images/11.png",
+    git: "https://github.com/LunaticEradicator/Personal-Portfolio",
+    live: "still working my dude",
+  },
+];
+
+export default projects;

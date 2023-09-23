@@ -1,5 +1,7 @@
-import React from "react";
-
-export default function Footer() {
-  return <div>footer</div>;
+import "../sass/components/footer.scss";
+function Footer() {
+  const currentYear = new Date().getFullYear();
+  return <footer className="footer">Portfolio @ {currentYear}</footer>;
 }
+
+export default Footer;
