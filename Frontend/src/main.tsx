@@ -7,9 +7,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+
 import HomeScreen from "./screen/HomeScreen.tsx";
 import ContactScreen from "./screen/ContactScreen.tsx";
 import ResumeScreen from "./screen/ResumeScreen.tsx";
+
+import { store } from "./store/store.tsx";
+import { Provider } from "react-redux";
 
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +27,8 @@ const route = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={route}></RouterProvider>
+    <Provider store={store}>
+      <RouterProvider router={route}></RouterProvider>
+    </Provider>
   </React.StrictMode>
 );

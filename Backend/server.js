@@ -17,6 +17,7 @@ app.use("/api/projects", projectRoutes);
 
 app.use(notFoundURL);
 app.use(errorHandler);
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
