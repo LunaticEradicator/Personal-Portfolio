@@ -1,6 +1,7 @@
 @use "../util/" as ut;
 $higherWidth: 480px;
 $lowerWidth: 300px;
+
 .textChanger {
   height: 100vh;
   display: flex;
@@ -39,7 +40,9 @@ $lowerWidth: 300px;
 
   .message {
     // background-color: yellow;
-    color: #fdfdfd;
+    // color: #fdfdfd;
+    color: #333;
+
     display: block;
     font-weight: 900;
     overflow: hidden;
@@ -67,6 +70,15 @@ $lowerWidth: 300px;
   .word3 {
     font-family: tahoma;
     // border: 1px solid white;
+  }
+  .scroll {
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   @keyframes openClose {

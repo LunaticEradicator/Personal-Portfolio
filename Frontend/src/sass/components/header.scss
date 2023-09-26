@@ -20,18 +20,21 @@
   align-items: center;
   margin: 0;
   position: relative;
-  background-color: rgb(14, 14, 14);
+  // background-color: #333;
+  background-color: #312e33;
   @include ut.breakpoint(large) {
     padding: 0px;
   }
   & a {
-    color: rgb(153, 153, 153);
+    font-weight: bold;
+    color: #e3d4e1;
   }
   & li {
-    // padding: 10px;
+    padding: 10px;
     font-size: 2rem;
     color: rgb(153, 153, 153);
     &:hover {
+      background: #ad9fba;
       color: white;
       & a {
         color: white;
@@ -61,7 +64,6 @@
       font-weight: bold;
     }
     &:nth-of-type(2) {
-      padding: 0;
       @include ut.breakpoint(large) {
         display: none;
         padding: 10px;
@@ -120,6 +122,13 @@
       text-decoration: none;
     }
   }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s;
 }
 
 .expanded {

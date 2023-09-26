@@ -1,0 +1,184 @@
+@use "../util/" as ut;
+
+.home {
+  // width: 85%;
+  // margin: 20px auto;
+  &__intro {
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+    }
+    h2 {
+      font-size: 4rem;
+      @include ut.breakpoint(larger) {
+        font-size: 3rem;
+      }
+      @include ut.breakpoint(large) {
+        font-size: 2.5rem;
+      }
+      @include ut.breakpoint(medium) {
+        font-size: 1.5rem;
+      }
+    }
+    h3 {
+      font-size: 3rem;
+      background-color: #312e33;
+      border-radius: 10px;
+      width: fit-content;
+      padding: 10px;
+      @include ut.breakpoint(larger) {
+        font-size: 2.5rem;
+      }
+      @include ut.breakpoint(large) {
+        font-size: 2rem;
+      }
+      @include ut.breakpoint(medium) {
+        font-size: 1.3rem;
+      }
+    }
+    h4 {
+      font-size: 2rem;
+      @include ut.breakpoint(larger) {
+        font-size: 1.5rem;
+      }
+      @include ut.breakpoint(large) {
+        font-size: 1.4rem;
+      }
+      @include ut.breakpoint(medium) {
+        font-size: 1.2rem;
+      }
+    }
+    background: url("../../../public/images/background/BG1.jpg") no-repeat fixed
+      center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: rgb(153, 153, 153);
+    border-radius: 10px;
+    @include ut.breakpoint(medium) {
+      background: url("../../../public/images/background/BG11.jpg") no-repeat
+        fixed 10% / cover;
+      // align-items: flex-end;
+    }
+
+    &__inner {
+      color: rgb(158 141 166);
+      padding: 20px;
+      @include ut.breakpoint(medium) {
+        padding: 0px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  &__skills {
+    height: 100vh;
+    background: url("../../../public/images/background/BG3.jpg") no-repeat fixed
+      center/cover;
+
+    // color: rgb(158 141 166);
+    color: rgb(255 40 80);
+    @include ut.breakpoint(large) {
+      background: url("../../../public/images/background/BG33.jpg") no-repeat
+        fixed 70% / cover;
+    }
+
+    @include ut.breakpoint(medium) {
+      background: url("../../../public/images/background/BG33.jpg") no-repeat
+        fixed 80% / cover;
+    }
+    &__header {
+      &__one {
+        padding-top: 40px;
+        font-size: 4rem;
+        font-weight: bold;
+        @include ut.breakpoint(larger) {
+          font-size: 3rem;
+        }
+        @include ut.breakpoint(large) {
+          font-size: 2.5rem;
+        }
+        @include ut.breakpoint(medium) {
+          font-size: 2rem;
+        }
+      }
+      &__two {
+        font-size: 3rem;
+        padding: 10px;
+        font-weight: bold;
+        background-color: #ffffff;
+        // background-color: #312e33;
+        border-radius: 10px;
+        width: fit-content;
+        @include ut.breakpoint(larger) {
+          font-size: 2.5rem;
+        }
+        @include ut.breakpoint(large) {
+          font-size: 2rem;
+        }
+        @include ut.breakpoint(medium) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &__language {
+      padding: 20px;
+      width: 65%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      font-weight: bold;
+      color: white;
+      @include ut.breakpoint(larger) {
+        width: 70%;
+        // padding-top: 50px;
+      }
+      @include ut.breakpoint(medium) {
+        // padding: 0px;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        width: 300px;
+      }
+      & svg {
+        color: black;
+        border-radius: 50%;
+        background: white;
+        width: 150px;
+        height: 150px;
+        @include ut.breakpoint(larger) {
+          width: 130px;
+          height: 130px;
+        }
+        @include ut.breakpoint(large) {
+          width: 90px;
+          height: 90px;
+        }
+        @include ut.breakpoint(medium) {
+          width: 70px;
+          height: 70px;
+        }
+      }
+
+      // background-color: red;
+      &__mongoDB,
+      &__express,
+      &__react,
+      &__node,
+      &__javascript,
+      &__sass,
+      &__typescript,
+      &__webPack,
+      &__redux {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+// .sike {
+//   background: url("../../../public/images/icon/1.svg") no-repeat fixed 80% /
+//     cover;
+// }

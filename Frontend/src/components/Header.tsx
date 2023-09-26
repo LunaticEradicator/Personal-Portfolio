@@ -17,7 +17,7 @@ export default function Header() {
 
   //? "expanded" is a class that will only be added if the display is a phone [medium media query]
   return (
-    <nav>
+    <nav id="navbarParent">
       <ul className={isNavExpanded ? "navbar" : "navbar expanded"}>
         {/*DropDown li ONE*/}
         <li className="navbar__item">
@@ -30,7 +30,12 @@ export default function Header() {
           className={isNavExpanded ? "navbar__item" : "navbar__item expanded"}
         >
           <Link to="/contact" className="navbar__item__link">
-            Contact
+            <div
+              className="navbar__item__link__innerChild"
+              style={{ display: "flex" }}
+            >
+              Contact
+            </div>
           </Link>
         </li>
         {/* DropDown li FIVE*/}
