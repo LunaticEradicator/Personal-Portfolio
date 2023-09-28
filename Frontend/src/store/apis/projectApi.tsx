@@ -7,7 +7,7 @@ export const projectApi = createApi({
   baseQuery,
   tagTypes: ["Project"],
   endpoints: (builder) => ({
-    getAllProjects: builder.query<void, void>({
+    getAllProjects: builder.query<any, void>({
       query: () => ({
         url: `${PROJECT_URL}`,
         method: "GET",

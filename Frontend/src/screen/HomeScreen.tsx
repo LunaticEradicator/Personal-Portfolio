@@ -9,9 +9,33 @@ import {
 import { SiExpress, SiWebpack } from "react-icons/si";
 import { FaNode } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoSass } from "react-icons/io";
+import Spinner from "../components/Reuseable/Spinner";
+import Project from "./util/Project";
 
 export default function HomeScreen() {
   const { data, isLoading, isError } = useGetAllProjectsQuery();
+  // console.log(data);
+
+  let renderData;
+  if (isLoading) {
+    renderData = <Spinner />;
+  } else if (isError) {
+    renderData = "Error Loading Page ";
+  } else {
+    renderData = (
+      <>
+        <div className="home__projects__header__one">ワークショップ</div>
+        <div className="home__projects__header__two">
+          Personal Projects/Assignment
+        </div>
+        <div className="home__projects__content">
+          {data.map((project) => {
+            return <Project key={project._id} {...project} />;
+          })}
+        </div>
+      </>
+    );
+  }
 
   // console.log(data);
   return (
@@ -66,6 +90,7 @@ export default function HomeScreen() {
           </div>
         </div>
       </div>
+      <div className="home__projects">{renderData}</div>
       {/* <div style={{ fontSize: "2rem" }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, magni
         sapiente et libero reiciendis rem nisi optio delectus iusto ullam!

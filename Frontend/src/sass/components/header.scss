@@ -14,7 +14,9 @@
     font-weight: bold;
   }
 }
-
+#navbarParent {
+  z-index: 2;
+}
 .navbar {
   display: flex;
   align-items: center;

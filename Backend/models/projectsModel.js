@@ -6,14 +6,18 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    stack: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
+    stack: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    image: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
     git: {
       type: String,
       required: true,

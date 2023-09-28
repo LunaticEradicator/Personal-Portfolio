@@ -1,35 +1,25 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { FaAngleDoubleLeft } from "react-icons/fa";
+import { FaAngleDoubleRight } from "react-icons/fa";
+import "../../sass/components/carousel.scss";
+import { nanoid } from "nanoid";
 
-const leftArrowStyle = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0,-50%)",
-  left: "32px",
-  fontSize: "4rem",
-  color: "white",
-  zIndex: 1,
-  cursor: "pointer",
-};
-const rightArrowStyle = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0,-50%)",
-  right: "32px",
-  fontSize: "4rem",
-  color: "white",
-  zIndex: 1,
-  cursor: "pointer",
-};
 const sliderContainerStyle = {
   height: "90%",
+  // height: "175px",
   position: "relative",
-};
+} as React.CSSProperties;
 const sliderStyle = {
   width: "100%",
   height: "100%",
   borderRadius: "10px",
   backgroundPosition: "center",
   backgroundSize: "cover",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "flex-end",
 };
 const dotContainerStyles = {
   display: "flex",
@@ -39,122 +29,180 @@ const dotContainerStyles = {
 const slidesContainerStyles = {
   display: "flex",
   height: "100%",
+  borderRadius: "10px",
   transition: "transform ease-out 0.7s",
 };
 const slidesContainerStylesOverflowHidden = {
   overflow: "hidden",
   height: "100%",
+  borderRadius: "10px",
 };
+// interface sike {}
+interface propUpdated {
+  img: string;
+  isCheckedColor: boolean;
+}
 
-export default function Carousel({ slides, parentWidth }) {
-  const timeRef = useRef(null);
+interface postProps {
+  name: string;
+  slides: any;
+  parentWidth: number;
+}
+export default function Carousel({ name, slides, parentWidth }: postProps) {
+  const timeRef = useRef<number>();
   const [currentIndex, setCurrentIndex] = useState(0);
+  // updatedSlides add a extra property [name,isCheckedColor]
   const [updatedSlides, setUpdatedSlides] = useState(
-    slides.map((slide) => {
-      return { ...slide, isCheckedColor: false };
-    })
+    slides &&
+      slides.map((slide: propUpdated) => {
+        return {
+          img: [slide],
+          _id: nanoid(),
+          name: name,
+          isCheckedColor: false, // to fill first dot when page loads
+        };
+      })
   );
 
-  const previousArrowHeadHandler = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? updatedSlides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-  const nextArrowHeadHandler = useCallback(() => {
-    const isLastSlide = currentIndex === updatedSlides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+  // console.log(updatedSlides);
+  //? condition that will only mark the first dot when page loads
+  //  else it won't be filled
+  if (
+    updatedSlides[0]?.isCheckedColor === false &&
+    updatedSlides[1]?.isCheckedColor !== true &&
+    updatedSlides[2]?.isCheckedColor !== true &&
+    updatedSlides[3]?.isCheckedColor !== true
+  ) {
+    updatedSlides[0].isCheckedColor = true;
+  }
+
+  const ChangeDotColorAutomatically = (newIndex: number) => {
     // Automatically Change Dot Color
     // If the AutomaticIndex [newIndex] === Dot Index
     // Dot will change color [ if isCheckedColor === true ]
-    setUpdatedSlides((prevUpdatedSlides) =>
-      prevUpdatedSlides.map((slide, index) => {
+    setUpdatedSlides((prevUpdatedSlides: object[]) =>
+      prevUpdatedSlides.map((slide: object, index: number) => {
         return index === newIndex
           ? { ...slide, isCheckedColor: true }
           : { ...slide, isCheckedColor: false };
       })
     );
-  }, [currentIndex, updatedSlides]);
+  };
 
-  const dotHandler = (dotIndex, id) => {
-    setCurrentIndex(dotIndex);
+  const ChangeDotColorManually = (id: number) => {
     // Change Dot Color when user clicks
     // If functionId  === Dot Id
     // Dot will change color [ if isCheckedColor === true ]
     setUpdatedSlides((prevUpdatedSlides) =>
       prevUpdatedSlides.map((slide) => {
-        return slide._id === id
+        return slide?._id === id
           ? { ...slide, isCheckedColor: true }
           : { ...slide, isCheckedColor: false };
       })
     );
   };
 
-  const getSlideStylesWidthBackground = (slideIndex) => {
-    return {
-      ...sliderStyle,
-      backgroundImage: `url('${updatedSlides[slideIndex].img}')`,
-      width: `${parentWidth}px`,
-    };
+  const previousArrowHeadHandler = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide
+      ? updatedSlides?.length - 1
+      : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    ChangeDotColorAutomatically(newIndex);
   };
 
+  const nextArrowHeadHandler = useCallback(() => {
+    const isLastSlide = currentIndex === updatedSlides?.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    ChangeDotColorAutomatically(newIndex);
+  }, [currentIndex, updatedSlides]);
+
+  const dotHandler = (dotIndex: number, id: number) => {
+    setCurrentIndex(dotIndex);
+    ChangeDotColorManually(id);
+    console.log(updatedSlides);
+  };
+
+  // To Change Image With Index
+  // Using the Data Array
+  const getSlideStylesWidthBackground = (slideIndex: number) => {
+    return {
+      ...sliderStyle,
+      // updatedSlides[0].img => an image
+      backgroundImage: `url('${updatedSlides[slideIndex]?.img}')`,
+      width: `${parentWidth}px`,
+    } as React.CSSProperties;
+  };
+
+  // Transform [Animation]
   const getSlidesContainerStylesWithWidth = () => {
     return {
       ...slidesContainerStyles,
-      width: parentWidth * updatedSlides.length,
+      width: parentWidth * updatedSlides?.length,
       transform: `translateX(${-(currentIndex * parentWidth)}px)`,
     };
   };
 
+  // Automatically Change Image After 'x' second
   useEffect(() => {
     if (timeRef.current) {
       clearTimeout(timeRef.current);
     }
     timeRef.current = setTimeout(() => {
       nextArrowHeadHandler();
-    }, 3000);
+    }, 3100);
+
+    // console.log(timeRef.current);
     return () => clearTimeout(timeRef.current);
   }, [nextArrowHeadHandler]);
 
   // console.log(updatedSlides);
   return (
     <div style={sliderContainerStyle}>
-      <div style={leftArrowStyle} onClick={previousArrowHeadHandler}>
-        &#11160;
+      {/* Arrows*/}
+      <div className="leftArrowStyle" onClick={previousArrowHeadHandler}>
+        <FaAngleDoubleLeft />
       </div>
-      <div style={rightArrowStyle} onClick={nextArrowHeadHandler}>
-        &#11162;
+      <div className="rightArrowStyle" onClick={nextArrowHeadHandler}>
+        <FaAngleDoubleRight />
       </div>
+
       {/* Animation */}
-      {/* <div style={slideStylesWidthBackground}></div> */}
       <div style={slidesContainerStylesOverflowHidden}>
         <div style={getSlidesContainerStylesWithWidth()}>
-          {updatedSlides.map((_, slideIndex) => {
+          {updatedSlides?.map((slide, slideIndex: number) => {
             return (
-              <div
-                key={slideIndex}
-                style={getSlideStylesWidthBackground(slideIndex)}
-              ></div>
+              slide && (
+                <div key={slideIndex}>
+                  {/* <Link to={`/products/${slide?._id}`}> */}
+                  <div style={getSlideStylesWidthBackground(slideIndex)}>
+                    <div className="slideName">{slide?.name}</div>
+                  </div>
+                  {/* </Link> */}
+                </div>
+              )
             );
           })}
         </div>
-
-        {/* Animation */}
       </div>
+      {/*Dot */}
       <div style={dotContainerStyles}>
-        {updatedSlides.map((slide, index) => {
+        {updatedSlides?.map((slide, index) => {
           return (
-            <div
-              style={{
-                color: slide.isCheckedColor ? "red" : "black",
-                margin: "8px",
-                cursor: "pointer",
-              }}
-              key={index}
-              onClick={() => dotHandler(index, slide._id)}
-            >
-              &#11044;
-            </div>
+            slide && (
+              <div
+                style={{
+                  color: slide?.isCheckedColor ? "rgb(255, 40, 80)" : "black",
+                  margin: "8px",
+                  cursor: "pointer",
+                }}
+                key={index}
+                onClick={() => dotHandler(index, slide._id)}
+              >
+                &#11044;
+              </div>
+            )
           );
         })}
       </div>

@@ -21,7 +21,7 @@ const importData = async () => {
 const destroyData = async () => {
   try {
     await Project.deleteMany();
-    console.log("Data Imported !".red.inverse);
+    console.log("Data Destroyed !".red.inverse);
     process.exit();
   } catch (error) {
     console.log(`${error}`.red.inverse);
