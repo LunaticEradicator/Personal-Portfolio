@@ -15,37 +15,29 @@ import { BiLogoGmail } from "react-icons/bi";
 import Spinner from "../components/Reuseable/Spinner";
 import Project from "./util/Project";
 import { useState } from "react";
+import ScrollAnimation from "../components/Reuseable/ScrollAnimation";
+
 export default function HomeScreen() {
   const { data, isLoading, isError } = useGetAllProjectsQuery();
   // console.log(data);
-
+  ScrollAnimation();
   let renderData;
   if (isLoading) {
     renderData = <Spinner />;
   } else if (isError) {
     renderData = "Error Loading Page ";
   } else {
-    renderData = (
-      <>
-        <div className="home__projects__header__one">ワークショップ</div>
-        <div className="home__projects__header__two">
-          Personal Projects/Assignment
-        </div>
-        <div className="home__projects__content">
-          {data.map((project) => {
-            return <Project key={project._id} {...project} />;
-          })}
-        </div>
-      </>
-    );
+    renderData = data.map((project) => {
+      return <Project key={project._id} {...project} />;
+    });
   }
 
   const [isCopied, SetIsCopied] = useState(false);
   console.log(isCopied);
   return (
     <section className="home">
-      <section className="home__intro">
-        <div className="home__intro__inner">
+      <section className="home__intro hide">
+        <div className="home__intro__inner hideText">
           <h4>出会う</h4>
           {/* <h4>出会う</h4> */}
           <div className="content">
@@ -56,57 +48,67 @@ export default function HomeScreen() {
           <h5>I build responsive and scalable web apps.</h5>
         </div>
       </section>
-      <section className="home__skills">
+      <section className="home__skills hide">
         <div className="home__skills__header__one">技術</div>
         <div className="home__skills__header__two">Language and Tools</div>
-        <div className="home__skills__language">
-          <div className="home__skills__language__mongoDB">
-            <BiLogoMongodb />
-            <span>MongoDB</span>
-          </div>
-          <div className="home__skills__language__express">
-            <SiExpress />
-            <span>Express</span>
-          </div>
-          <div className="home__skills__language__react">
-            <BiLogoReact />
-            <span>React</span>
-          </div>
-          <div className="home__skills__language__node">
-            <FaNode />
-            <span>Node</span>
-          </div>
-          <div className="home__skills__language__javascript">
-            <IoLogoJavascript />
-            <span>JavaScript</span>
-          </div>
-          <div className="home__skills__language__sass">
-            <IoLogoSass />
-            <span>Sass</span>
-          </div>
-          <div className="home__skills__language__typescript">
-            <BiLogoTypescript />
-            <span>TypeScript</span>
-          </div>
-          <div className="home__skills__language__webPack">
-            <SiWebpack />
-            <span>WebPack</span>
-          </div>
-          <div className="home__skills__language__redux">
-            <BiLogoRedux />
-            <span>Redux</span>
-          </div>
-          <div className="home__skills__language__git">
-            <BsGithub />
-            <span>Git</span>
+        <div className="hideText">
+          <div className="home__skills__language">
+            <div className="home__skills__language__mongoDB">
+              <BiLogoMongodb />
+              <span>MongoDB</span>
+            </div>
+            <div className="home__skills__language__express">
+              <SiExpress />
+              <span>Express</span>
+            </div>
+            <div className="home__skills__language__react">
+              <BiLogoReact />
+              <span>React</span>
+            </div>
+            <div className="home__skills__language__node">
+              <FaNode />
+              <span>Node</span>
+            </div>
+            <div className="home__skills__language__javascript">
+              <IoLogoJavascript />
+              <span>JavaScript</span>
+            </div>
+            <div className="home__skills__language__sass">
+              <IoLogoSass />
+              <span>Sass</span>
+            </div>
+            <div className="home__skills__language__typescript">
+              <BiLogoTypescript />
+              <span>TypeScript</span>
+            </div>
+            <div className="home__skills__language__webPack">
+              <SiWebpack />
+              <span>WebPack</span>
+            </div>
+            <div className="home__skills__language__redux">
+              <BiLogoRedux />
+              <span>Redux</span>
+            </div>
+            <div className="home__skills__language__git">
+              <BsGithub />
+              <span>Git</span>
+            </div>
           </div>
         </div>
       </section>
-      <section className="home__projects">{renderData}</section>
-      <section className="home__contact">
+      <section className="home__projects hide">
+        <div className="">
+          <div className="home__projects__header__one">ワークショップ</div>
+          <div className="home__projects__header__two">
+            Personal Projects/Assignment
+          </div>
+          <div className="home__projects__content hideText">{renderData}</div>
+        </div>
+      </section>
+      <section className="home__contact hide">
         <div className="home__contact__header__one">ソーシャルメディア</div>
         <div className="home__contact__header__two">Let's Connect</div>
-        <div className="home__contact__content">
+        <div className="home__contact__content hideText">
           <div className="home__contact__content__git">
             <a href="https://github.com/LunaticEradicator" target="_blank">
               <BsGithub />
