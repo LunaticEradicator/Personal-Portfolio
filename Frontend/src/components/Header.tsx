@@ -1,7 +1,8 @@
 import "../sass/components/header.scss";
 import { useState } from "react";
 import { IoMenuSharp } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 // import DropDown from "./Reuseable/DropDown";
 import Button from "./Reuseable/Button";
 // import type { RootState } from "../store/store";
@@ -25,20 +26,7 @@ export default function Header() {
             Home
           </Link>
         </li>
-        {/* DropDown li Two */}
-        <li
-          className={isNavExpanded ? "navbar__item" : "navbar__item expanded"}
-        >
-          <Link to="/contact" className="navbar__item__link">
-            <div
-              className="navbar__item__link__innerChild"
-              style={{ display: "flex" }}
-            >
-              Contact
-            </div>
-          </Link>
-        </li>
-        {/* DropDown li FIVE*/}
+        {/* DropDown li Two*/}
         <li
           className={isNavExpanded ? "navbar__item" : "navbar__item expanded"}
         >
@@ -51,7 +39,6 @@ export default function Header() {
             </div>
           </Link>
         </li>
-
         {/* DropDown li Last [hamburger icon ] */}
         {/* <div onClick={navBarExpandHandler}> */}
         <Button className="navbar__item" onClick={navBarExpandHandler}>

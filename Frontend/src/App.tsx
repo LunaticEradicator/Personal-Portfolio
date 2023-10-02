@@ -21,7 +21,8 @@ export default function App() {
       window.removeEventListener("click", urlPath);
     };
   }, []);
-  console.log(urlPath);
+  // console.log(urlPath);
+
   return (
     <div className="app">
       {urlPath === "/" && (

@@ -29,20 +29,13 @@
     transform: translate(0, -50%);
     left: 32px;
     font-size: 1.2rem;
-
-    color: white;
+    color: rgb(255, 255, 255);
     z-index: 1;
     cursor: pointer;
-    // @include ut.breakpoint(large) {
-    //   font-size: 3rem;
-    // }
-    // @include ut.breakpoint(medium) {
-    //   font-size: 2rem;
-    // }
     transition: all 0.3s;
     &:hover {
       color: rgb(255, 40, 80);
-      // color: rgb(19, 212, 19);
+      // color: rgb(255, 40, 80);
     }
   }
   & .rightArrowStyle {
@@ -51,20 +44,12 @@
     transform: translate(0, -50%);
     right: 32px;
     font-size: 1.2rem;
-    color: white;
+    color: rgb(255, 255, 255);
     z-index: 1;
     cursor: pointer;
-    // @include ut.breakpoint(large) {
-    //   font-size: 3rem;
-    // }
-    // @include ut.breakpoint(medium) {
-    //   font-size: 2rem;
-    // }
     transition: all 0.3s;
     &:hover {
       color: rgb(255, 40, 80);
-
-      // color: rgb(19, 212, 19);
     }
   }
   & .slideName {

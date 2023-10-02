@@ -22,21 +22,23 @@
   align-items: center;
   margin: 0;
   position: relative;
-  // background-color: #333;
-  background-color: #312e33;
+  background-color: #000000;
+  // background-color: #312e33;
   @include ut.breakpoint(large) {
     padding: 0px;
   }
   & a {
     font-weight: bold;
-    color: #e3d4e1;
+    // color: #e3d4e1;
+    color: rgb(212 202 227);
+    color: rgb(255, 40, 80);
   }
   & li {
     padding: 10px;
     font-size: 2rem;
     color: rgb(153, 153, 153);
     &:hover {
-      background: #ad9fba;
+      background: #38343a;
       color: white;
       & a {
         color: white;
