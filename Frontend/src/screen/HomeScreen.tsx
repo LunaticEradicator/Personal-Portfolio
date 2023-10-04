@@ -1,4 +1,5 @@
 import "../sass/screens/homeScreen.scss";
+import { useEffect } from "react";
 import { useGetAllProjectsQuery } from "../store/apis/projectApi";
 import {
   BiLogoMongodb,
@@ -17,23 +18,50 @@ import Project from "./util/Project";
 import { useState } from "react";
 import ScrollAnimation from "../components/Reuseable/ScrollAnimation";
 
+interface postProps {
+  _id: string;
+  name: string;
+  live: string;
+  git: string;
+  image: string;
+  stack: string;
+}
+
 export default function HomeScreen() {
   const { data, isLoading, isError } = useGetAllProjectsQuery();
+  const [isCopied, SetIsCopied] = useState(false);
+  const [urlPath, setUrlPath] = useState(window.location.pathname);
+
+  // console.log(isCopied);
   // console.log(data);
-  ScrollAnimation();
+  useEffect(() => {
+    // updated urlPath
+    function urlPath() {
+      setUrlPath(window.location.pathname);
+    }
+    window.addEventListener("click", urlPath);
+    return () => {
+      window.removeEventListener("click", urlPath);
+    };
+  }, []);
+  useEffect(() => {
+    // whenever url changes run function
+    ScrollAnimation();
+  }, [urlPath]);
+
   let renderData;
   if (isLoading) {
     renderData = <Spinner />;
   } else if (isError) {
     renderData = "Error Loading Page ";
   } else {
-    renderData = data.map((project) => {
+    // run animation by default
+    ScrollAnimation();
+    renderData = data.map((project: postProps) => {
       return <Project key={project._id} {...project} />;
     });
   }
 
-  const [isCopied, SetIsCopied] = useState(false);
-  console.log(isCopied);
   return (
     <section className="home">
       <section className="home__intro hide">
@@ -99,9 +127,7 @@ export default function HomeScreen() {
       <section className="home__projects hide">
         <div className="">
           <div className="home__projects__header__one">ワークショップ</div>
-          <div className="home__projects__header__two">
-            Personal Projects/Assignment
-          </div>
+          <div className="home__projects__header__two">Personal Projects</div>
           <div className="home__projects__content hideText">{renderData}</div>
         </div>
       </section>

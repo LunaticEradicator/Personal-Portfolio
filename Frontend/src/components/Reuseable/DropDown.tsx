@@ -7,7 +7,6 @@ interface postProp {
   options: { label: string; value: string; handler: () => void }[];
   name: string;
   setIsDrop: any;
-  // setIsDrop: (value: boolean) => void | any;
   isDrop: boolean;
 }
 export default function DropDown({
@@ -16,12 +15,9 @@ export default function DropDown({
   setIsDrop,
   isDrop,
 }: postProp) {
-  // const [isDrop, setIsDrop] = useState(false);
   const divElement = useRef<HTMLInputElement>(null);
   // close when clicked on anywhere in screen
   useEffect(() => {
-    // React.ChangeEvent<HTMLInputElement>;
-
     function handleClick(event: Event) {
       if (!divElement.current) {
         return;

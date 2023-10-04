@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import "./sass/style.scss";
 import TextChange from "./components/Reuseable/TextChange";
-import StickyNavbar from "./screen/util/StickyNavbar";
+import StickyNavbar from "./components/Reuseable/StickyNavbar";
 
 export default function App() {
   const [urlPath, setUrlPath] = useState(window.location.pathname);
@@ -21,8 +21,8 @@ export default function App() {
       window.removeEventListener("click", urlPath);
     };
   }, []);
-  // console.log(urlPath);
 
+  // console.log(urlPath);
   return (
     <div className="app">
       {urlPath === "/" && (

@@ -1,11 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import "../../sass/components/textChanger.scss";
 import { AiFillCaretDown } from "react-icons/ai";
-import { BsFillCaretDownSquareFill } from "react-icons/bs";
 
-export default function TextChange({ slides }) {
+export default function TextChange({ slides }: any) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [updatedSlides, setUpdatedSlides] = useState(slides);
+  const [updatedSlides] = useState(slides);
 
   const nextArrowHeadHandler = useCallback(() => {
     const isLastSlide = currentIndex === updatedSlides.length - 1;

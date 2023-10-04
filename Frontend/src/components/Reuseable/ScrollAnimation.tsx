@@ -1,7 +1,9 @@
+import "../../sass/components/scrollAnimation.scss";
+
 export default function ScrollAnimation() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      console.log(entry);
+      // console.log(entry);
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       } else {

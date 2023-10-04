@@ -1,15 +1,12 @@
 import "../sass/components/header.scss";
 import { useState } from "react";
 import { IoMenuSharp } from "react-icons/io5";
-// import { Link } from "react-router-dom";
-import { HashLink as Link } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 // import DropDown from "./Reuseable/DropDown";
 import Button from "./Reuseable/Button";
 // import type { RootState } from "../store/store";
 
 export default function Header() {
-  //   const navigate = useNavigate();
-
   // for nav we add a new class which will make all li be block only when screen is medium
   const [isNavExpanded, setIsNavExpanded] = useState(true);
   const navBarExpandHandler = () => {
@@ -18,6 +15,7 @@ export default function Header() {
 
   //? "expanded" is a class that will only be added if the display is a phone [medium media query]
   return (
+    /* Sticky NAVBAR Parent*/
     <nav id="navbarParent">
       <ul className={isNavExpanded ? "navbar" : "navbar expanded"}>
         {/*DropDown li ONE*/}
@@ -46,6 +44,12 @@ export default function Header() {
         </Button>
         {/* </div> */}
       </ul>
+      {/* NAVBAR PROGRESSION */}
+      <div className="header">
+        <div className="progress-container">
+          <div className="progress-bar" id="myBar"></div>
+        </div>
+      </div>
     </nav>
   );
 }

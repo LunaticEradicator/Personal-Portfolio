@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import "../../sass/components/carousel.scss";
@@ -37,7 +36,6 @@ const slidesContainerStylesOverflowHidden = {
   height: "100%",
   borderRadius: "10px",
 };
-// interface sike {}
 interface propUpdated {
   img: string;
   isCheckedColor: boolean;
@@ -93,7 +91,7 @@ export default function Carousel({ name, slides, parentWidth }: postProps) {
     // Change Dot Color when user clicks
     // If functionId  === Dot Id
     // Dot will change color [ if isCheckedColor === true ]
-    setUpdatedSlides((prevUpdatedSlides) =>
+    setUpdatedSlides((prevUpdatedSlides: Array<any>) =>
       prevUpdatedSlides.map((slide) => {
         return slide?._id === id
           ? { ...slide, isCheckedColor: true }
@@ -149,11 +147,10 @@ export default function Carousel({ name, slides, parentWidth }: postProps) {
     if (timeRef.current) {
       clearTimeout(timeRef.current);
     }
-    timeRef.current = setTimeout(() => {
+    timeRef.current = window.setTimeout(() => {
       nextArrowHeadHandler();
     }, 3100);
 
-    // console.log(timeRef.current);
     return () => clearTimeout(timeRef.current);
   }, [nextArrowHeadHandler]);
 
@@ -171,7 +168,7 @@ export default function Carousel({ name, slides, parentWidth }: postProps) {
       {/* Animation */}
       <div style={slidesContainerStylesOverflowHidden}>
         <div style={getSlidesContainerStylesWithWidth()}>
-          {updatedSlides?.map((slide, slideIndex: number) => {
+          {updatedSlides?.map((slide: any, slideIndex: number) => {
             return (
               slide && (
                 <div key={slideIndex}>
@@ -188,7 +185,7 @@ export default function Carousel({ name, slides, parentWidth }: postProps) {
       </div>
       {/*Dot */}
       <div style={dotContainerStyles}>
-        {updatedSlides?.map((slide, index) => {
+        {updatedSlides?.map((slide: any, index: number) => {
           return (
             slide && (
               <div

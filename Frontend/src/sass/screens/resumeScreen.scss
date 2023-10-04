@@ -1,0 +1,8 @@
+@use "../util/" as ut;
+
+.resume {
+  &__inner {
+    width: 99vw;
+    height: 100vh;
+  }
+}
