@@ -98,7 +98,7 @@ const projects = [
   },
   {
     name: "Expense Tracker",
-    stack: ["TypeScript", "Sass", "React"],
+    stack: ["Javascript", "Css", "React"],
     image: [
       "/images/Carosouel/9/1.png",
       "/images/Carosouel/9/2.png",

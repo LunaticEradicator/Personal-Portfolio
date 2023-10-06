@@ -145,13 +145,13 @@ export default function HomeScreen() {
           </div>
           <div className="home__contact__content__linkedin">
             <a
-              href="https://www.linkedin.com/in/yedu-krishnan-a-984709219/"
+              href=" https://www.linkedin.com/in/yedukrishnan-a-984709219"
               target="_blank"
             >
               <AiFillLinkedin />
             </a>
             <div className="home__contact__content__git__hover">
-              https://www.linkedin.com/in/yedu-krishnan-a-984709219/
+              www.linkedin.com/in/yedukrishnan-a-984709219
             </div>
           </div>
           <div className="home__contact__content__facebook">
@@ -168,7 +168,7 @@ export default function HomeScreen() {
           </div>
           <div
             onClick={() => {
-              navigator.clipboard.writeText("lunaticeradicator@gmail.com");
+              navigator.clipboard.writeText("yedukrishnandotappu@gmail.com");
               SetIsCopied(true);
               setTimeout(() => SetIsCopied(false), 1200);
             }}
@@ -183,7 +183,7 @@ export default function HomeScreen() {
               )}
             </div>
             <div className="home__contact__content__git__hover">
-              lunaticeradicator@gmail.com
+              yedukrishnandotappu@gmail.com
             </div>
           </div>
         </div>

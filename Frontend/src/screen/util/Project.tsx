@@ -12,6 +12,7 @@ import {
 import { SiExpress, SiWebpack } from "react-icons/si";
 import { FaNode } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoSass } from "react-icons/io";
+import { FaCss3Alt } from "react-icons/fa";
 
 import Carousel from "../../components/Reuseable/Carousel";
 
@@ -79,6 +80,12 @@ export default function Project({ name, live, git, image, stack }: postProps) {
             <div className="home__projects__content__each__stack__sass">
               <IoLogoSass />
               <span>Sass</span>
+            </div>
+          )}
+          {stack.includes("Css") && (
+            <div className="home__projects__content__each__stack__css">
+              <FaCss3Alt />
+              <span>Css</span>
             </div>
           )}
           {stack.includes("Webpack") && (
