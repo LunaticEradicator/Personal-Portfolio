@@ -1,25 +1,22 @@
 @forward "global";
 @forward "util";
-@import url(https://db.onlinewebfonts.com/c/ea45e9ad2fb797a7a410d2884e606a43?family=AnimeAce2.0BB);
+
 @font-face {
-  font-family: "AnimeAce2.0BB";
-  src: url("https://db.onlinewebfonts.com/t/ea45e9ad2fb797a7a410d2884e606a43.eot");
-  src: url("https://db.onlinewebfonts.com/t/ea45e9ad2fb797a7a410d2884e606a43.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/ea45e9ad2fb797a7a410d2884e606a43.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/ea45e9ad2fb797a7a410d2884e606a43.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/ea45e9ad2fb797a7a410d2884e606a43.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/ea45e9ad2fb797a7a410d2884e606a43.svg#AnimeAce2.0BB")
-      format("svg");
+  font-family: animeace2;
+  src: url(/animeace2_reg.otf);
+  // src: url(../../public/animeace2_bld.otf);
 }
 
 body {
   // background-color: #e4e5ea;
-  background-color: #f1f2f5;
-  font-family: "AnimeAce2.0BB";
+  // background-color: #f1f2f5;
+  // background-color: #333;
+  // background-color: #312e33;
+  // background-color: rgb(14, 14, 14);
+
+  // color: #333333;
+
+  font-family: animeace2;
 }
 
 h1 {

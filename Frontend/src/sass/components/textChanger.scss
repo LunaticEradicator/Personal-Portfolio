@@ -14,7 +14,7 @@ $lowerWidth: 300px;
 
   h1 {
     // color: #333;
-    font-family: tahoma;
+    padding-bottom: 8px;
     font-size: 5rem;
     font-weight: 100;
     line-height: 1;
@@ -64,12 +64,13 @@ $lowerWidth: 300px;
       margin-bottom: 15px;
     }
   }
-  .word1 {
-    font-family: "AnimeAce2.0BB";
-  }
+  // .word1 {
+  //   font-family: animeace2;
+  // }
+  .word1,
   .word2,
   .word3 {
-    font-family: tahoma;
+    font-family: animeace2;
     // border: 1px solid white;
   }
   .scroll {

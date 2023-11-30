@@ -25,7 +25,8 @@
     h3 {
       font-size: 3rem;
       color: rgb(255, 40, 80);
-      background-color: #312e33;
+      background-color: #0e0e0e;
+
       border-radius: 10px;
       width: fit-content;
       padding: 10px;
@@ -65,17 +66,17 @@
         font-size: 1rem;
       }
     }
-    background: url("/images/background/BG1.jpg") no-repeat fixed center/cover;
+    // background: url("/images/background/BG1.jpg") no-repeat fixed center/cover;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     color: rgb(153, 153, 153);
     border-radius: 10px;
-    @include ut.breakpoint(medium) {
-      background: url("/images/background/BG11.jpg") no-repeat fixed 10% / cover;
-      // align-items: flex-end;
-    }
+    // @include ut.breakpoint(medium) {
+    //   background: url("/images/background/BG11.jpg") no-repeat fixed 10% / cover;
+    //   // align-items: flex-end;
+    // }
     &__inner {
       color: #958697;
       // color: #a8a8a8;
@@ -102,16 +103,16 @@
 
   &__skills {
     min-height: 100vh;
-    background: url("/images/background/BG3.jpg") no-repeat fixed center/cover;
+    // background: url("/images/background/BG3.jpg") no-repeat fixed center/cover;
     // color: rgb(158 141 166);
     color: rgb(255 40 80);
-    @include ut.breakpoint(large) {
-      background: url("/images/background/BG33.jpg") no-repeat fixed 70% / cover;
-    }
+    // @include ut.breakpoint(large) {
+    //   background: url("/images/background/BG33.jpg") no-repeat fixed 70% / cover;
+    // }
 
-    @include ut.breakpoint(medium) {
-      background: url("/images/background/BG33.jpg") no-repeat fixed 80% / cover;
-    }
+    // @include ut.breakpoint(medium) {
+    //   background: url("/images/background/BG33.jpg") no-repeat fixed 80% / cover;
+    // }
     &__header {
       &__one {
         padding-top: 40px;
@@ -153,7 +154,6 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 20px;
       font-weight: bold;
-      color: white;
       @include ut.breakpoint(larger) {
         width: 70%;
         // padding-top: 50px;
@@ -207,10 +207,10 @@
     }
   }
   &__projects {
-    background: url(/images/background/BG6.jpg) no-repeat fixed top/cover;
-    @include ut.breakpoint(medium) {
-      background: url(/images/background/BG6.jpg) no-repeat fixed 70% / cover;
-    }
+    // background: url(/images/background/BG6.jpg) no-repeat fixed top/cover;
+    // @include ut.breakpoint(medium) {
+    //   background: url(/images/background/BG6.jpg) no-repeat fixed 70% / cover;
+    // }
 
     // background-color: rgb(109, 100, 100);
     color: rgb(255, 40, 80);
@@ -270,7 +270,7 @@
   &__contact {
     color: #a8a8a8;
     min-height: 100vh;
-    background: url("/images/background/BG44.png") no-repeat fixed center/cover;
+    // background: url("/images/background/BG44.png") no-repeat fixed center/cover;
     & a {
       color: #a8a8a8;
       font-weight: bold;

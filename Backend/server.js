@@ -8,7 +8,7 @@ import { notFoundURL, errorHandler } from "./middleware/errorHandler.js";
 dotenv.config();
 connectDB(); // connect to MongoDB
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 const __dirname = path.resolve();
 
 app.use("/api/projects", projectRoutes);

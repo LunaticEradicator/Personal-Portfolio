@@ -20,8 +20,8 @@
   align-items: center;
   margin: 0;
   position: relative;
-  background-color: #000000;
-  // background-color: #312e33;
+  background-color: rgb(14, 14, 14);
+
   @include ut.breakpoint(large) {
     padding: 0px;
   }
