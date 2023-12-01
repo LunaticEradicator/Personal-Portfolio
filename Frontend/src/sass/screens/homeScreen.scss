@@ -1,9 +1,22 @@
 @use "../util/" as ut;
 
+:root {
+  --sectionPadding: 25px 25px;
+  --japaneseShader: #0e0e0e;
+  --japaneseColor: #fdfdfd;
+}
+
 .home {
-  // width: 85%;
-  // margin: 20px auto;
   &__intro {
+    // background: url("/images/background/BG1.jpg") no-repeat fixed center/cover;
+    // min-height: 100vh;
+    // padding: 20px !important;
+    padding: var(--sectionPadding);
+    border-radius: 10px;
+    // @include ut.breakpoint(medium) {
+    // background: url("/images/background/BG11.jpg") no-repeat fixed 10% / cover;
+    //   // align-items: flex-end;
+    // }
     h2,
     h3,
     h4,
@@ -11,15 +24,16 @@
       margin: 0;
     }
     h2 {
-      font-size: 4rem;
+      margin: 2px 0px;
+      font-size: 5.5rem;
       @include ut.breakpoint(larger) {
-        font-size: 3rem;
+        font-size: 4rem;
       }
       @include ut.breakpoint(large) {
-        font-size: 2.5rem;
+        font-size: 3rem;
       }
       @include ut.breakpoint(medium) {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
     }
     h3 {
@@ -54,7 +68,6 @@
     }
     h5 {
       color: #070707;
-      // font-family: cursive;
       font-size: 1.5rem;
       @include ut.breakpoint(larger) {
         font-size: 1.2rem;
@@ -65,75 +78,82 @@
       @include ut.breakpoint(medium) {
         font-size: 1rem;
       }
+      & > div {
+        display: inline-flex;
+        color: rgb(255, 40, 80);
+        background-color: #0e0e0e;
+        -webkit-text-fill-color: rgb(255, 40, 80);
+        // -webkit-text-stroke: 1px black;
+        text-shadow: none;
+        padding: 3px 5px;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin: 2px 0px;
+      }
     }
-    // background: url("/images/background/BG1.jpg") no-repeat fixed center/cover;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: rgb(153, 153, 153);
-    border-radius: 10px;
-    // @include ut.breakpoint(medium) {
-    //   background: url("/images/background/BG11.jpg") no-repeat fixed 10% / cover;
-    //   // align-items: flex-end;
-    // }
     &__inner {
       color: #958697;
       // color: #a8a8a8;
       // color: rgb(158 141 166);
-      padding: 20px;
       @include ut.breakpoint(medium) {
         padding: 10px;
         border-radius: 10px;
       }
+
       @supports (-webkit-text-stroke: 1px black) {
         h1,
         h2,
         h4,
         h5 {
-          -webkit-text-fill-color: white;
-          // -webkit-text-stroke: 1px black;
-          color: white;
-          text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
-            -1px 1px 0 #000, 1px 1px 0 #000;
+          // -webkit-text-fill-color: white;
+          color: #ffffff;
+          font-weight: bold;
+          text-shadow: 3px 3px 0px var(--japaneseShader),
+            -1px -1px 0 var(--japaneseShader), 1px -1px 0 var(--japaneseShader),
+            -1px 1px 0 var(--japaneseShader), 1px 1px 0 var(--japaneseShader);
+        }
+      }
+      @supports (-webkit-text-stroke: 1px black) {
+        h4 {
+          font-size: 2rem;
+          text-shadow: 2px 2px 0px var(--japaneseShader),
+            -1px -1px 0 var(--japaneseShader), 1px -1px 0 var(--japaneseShader),
+            -1px 1px 0 var(--japaneseShader), 1px 1px 0 var(--japaneseShader);
+
+          color: var(--japaneseColor);
         }
       }
     }
   }
 
   &__skills {
-    min-height: 100vh;
-    // background: url("/images/background/BG3.jpg") no-repeat fixed center/cover;
-    // color: rgb(158 141 166);
+    padding: var(--sectionPadding);
     color: rgb(255 40 80);
-    // @include ut.breakpoint(large) {
-    //   background: url("/images/background/BG33.jpg") no-repeat fixed 70% / cover;
-    // }
-
-    // @include ut.breakpoint(medium) {
-    //   background: url("/images/background/BG33.jpg") no-repeat fixed 80% / cover;
-    // }
     &__header {
       &__one {
-        padding-top: 40px;
-        font-size: 4rem;
+        color: var(--japaneseColor);
+        font-size: 2rem;
+        text-shadow: 2px 2px 0px var(--japaneseShader),
+          -1px -1px 0 var(--japaneseShader), 1px -1px 0 var(--japaneseShader),
+          -1px 1px 0 var(--japaneseShader), 1px 1px 0 var(--japaneseShader);
         font-weight: bold;
-        @include ut.breakpoint(larger) {
-          font-size: 3rem;
-        }
-        @include ut.breakpoint(large) {
-          font-size: 2.5rem;
-        }
-        @include ut.breakpoint(medium) {
-          font-size: 2rem;
-        }
+
+        // @include ut.breakpoint(larger) {
+        //   font-size: 3rem;
+        // }
+        // @include ut.breakpoint(large) {
+        //   font-size: 2.5rem;
+        // }
+        // @include ut.breakpoint(medium) {
+        //   font-size: 2rem;
+        // }
       }
       &__two {
         font-size: 3rem;
         padding: 10px;
         font-weight: bold;
-        background-color: #ffffff;
-        // background-color: #312e33;
+        color: rgb(255, 40, 80);
+        background-color: #0e0e0e;
         border-radius: 10px;
         width: fit-content;
         @include ut.breakpoint(larger) {
@@ -149,40 +169,47 @@
     }
     &__language {
       padding: 20px;
-      width: 65%;
+      // width: 65%;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      // gap: 10px;
       font-weight: bold;
+      // @include ut.breakpoint(larger) {
+      //   width: 70%;
+      //   // padding-top: 50px;
+      // }
       @include ut.breakpoint(larger) {
-        width: 70%;
-        // padding-top: 50px;
-      }
-      @include ut.breakpoint(medium) {
         // padding: 0px;
+        gap: 20px;
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        width: 300px;
       }
+      @include ut.breakpoint(xSmall) {
+        // padding: 0px;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(10 0px, 1fr));
+      }
+
       & svg {
         cursor: zoom-in;
         padding: 10px;
-        color: black;
+        color: white;
         border-radius: 50%;
-        background: white;
-        width: 150px;
-        height: 150px;
+
+        background: #0e0e0e;
+        width: 90px;
+        height: 90px;
         transition: all 0.6s;
         @include ut.breakpoint(larger) {
-          width: 130px;
-          height: 130px;
-        }
-        @include ut.breakpoint(large) {
           width: 80px;
           height: 80px;
         }
+        @include ut.breakpoint(large) {
+          width: 70px;
+          height: 70px;
+        }
         @include ut.breakpoint(medium) {
-          width: 73px;
-          height: 73px;
+          width: 55px;
+          height: 55px;
         }
         &:hover {
           transform: scale(1.05);
@@ -212,31 +239,34 @@
     //   background: url(/images/background/BG6.jpg) no-repeat fixed 70% / cover;
     // }
 
-    // background-color: rgb(109, 100, 100);
+    padding: var(--sectionPadding);
     color: rgb(255, 40, 80);
-    // color: rgb(158, 141, 166);
-    min-height: 100vh;
+
     &__header {
       &__one {
-        padding-top: 40px;
-        font-size: 4rem;
+        // padding-top: 40px;
+        font-size: 2rem;
+        color: var(--japaneseColor);
+        text-shadow: 3px 3px 0px var(--japaneseShader),
+          -1px -1px 0 var(--japaneseShader), 1px -1px 0 var(--japaneseShader),
+          -1px 1px 0 var(--japaneseShader), 1px 1px 0 var(--japaneseShader);
         font-weight: bold;
-        @include ut.breakpoint(larger) {
-          font-size: 3rem;
-        }
-        @include ut.breakpoint(large) {
-          font-size: 2.5rem;
-        }
-        @include ut.breakpoint(medium) {
-          font-size: 2rem;
-        }
+
+        // @include ut.breakpoint(larger) {
+        // }
+        // @include ut.breakpoint(large) {
+        //   font-size: 2.5rem;
+        // }
+        // @include ut.breakpoint(medium) {
+        //   font-size: 2rem;
+        // }
       }
       &__two {
         font-size: 3rem;
         padding: 10px;
         font-weight: bold;
         color: rgb(255, 40, 80);
-        background-color: #312e33;
+        background-color: #0e0e0e;
         word-break: break-all;
         // background-color: #312e33;
         border-radius: 10px;
@@ -256,20 +286,24 @@
       color: #ff2153;
       // margin-top: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       padding: 20px;
       gap: 20px;
-      @include ut.breakpoint(medium) {
+      @include ut.breakpoint(large) {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
+      @include ut.breakpoint(medium) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
       @include ut.breakpoint(xSmall) {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       }
     }
   }
   &__contact {
-    color: #a8a8a8;
-    min-height: 100vh;
+    // color: #a8a8a8;
+    padding: var(--sectionPadding);
+    // min-height: 100vh;
     // background: url("/images/background/BG44.png") no-repeat fixed center/cover;
     & a {
       color: #a8a8a8;
@@ -278,26 +312,29 @@
 
     &__header {
       &__one {
-        padding-top: 40px;
-        font-size: 4rem;
+        // padding-top: 40px;
+        color: var(--japaneseColor);
+        text-shadow: 3px 3px 0px var(--japaneseShader),
+          -1px -1px 0 var(--japaneseShader), 1px -1px 0 var(--japaneseShader),
+          -1px 1px 0 var(--japaneseShader), 1px 1px 0 var(--japaneseShader);
+        font-size: 2rem;
         font-weight: bold;
-        @include ut.breakpoint(larger) {
-          font-size: 3rem;
-        }
-        @include ut.breakpoint(large) {
-          font-size: 2.5rem;
-        }
-        @include ut.breakpoint(medium) {
-          font-size: 2rem;
-        }
+        // @include ut.breakpoint(larger) {
+        //   font-size: 3rem;
+        // }
+        // @include ut.breakpoint(large) {
+        //   font-size: 2.5rem;
+        // }
+        // @include ut.breakpoint(medium) {
+        //   font-size: 2rem;
+        // }
       }
       &__two {
         font-size: 3rem;
         padding: 10px;
         font-weight: bold;
-        color: #312e33;
-        // color: rgb(255, 40, 80);
-        background-color: #a8a8a8;
+        color: rgb(255, 40, 80);
+        background-color: #0e0e0e;
         // background-color: #312e33;
         border-radius: 10px;
         width: fit-content;
@@ -327,6 +364,8 @@
       }
     }
     & svg {
+      color: rgb(255, 255, 255);
+      background: #0e0e0e;
       margin: 10px;
       cursor: pointer !important;
       padding: 5px;
@@ -347,8 +386,9 @@
         height: 73px;
       }
       &:hover {
-        color: black;
-        background: white;
+        color: #0e0e0e;
+        background-color: rgb(255, 255, 255);
+
         transform: scale(1.07);
       }
     }
@@ -374,7 +414,7 @@
     top: 50%;
     left: 230%;
     transform: translate(-50%, -50%);
-    color: rgb(255, 255, 255);
+    color: #0e0e0e;
     @include ut.breakpoint(larger) {
       left: 250%;
     }
@@ -412,7 +452,6 @@
   & h3 {
     color: #fff;
     position: absolute;
-    font-family: "AnimeAce2.0BB";
     left: 0;
     &:nth-child(1) {
       color: transparent;

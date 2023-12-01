@@ -1,6 +1,7 @@
 // sticky animation
 #navbarParent {
   z-index: 2;
+  // padding: 0 20px;
 }
 
 .sticky {
@@ -12,7 +13,6 @@
 
 .sticky + .main {
   padding-top: 60px;
-  transition: all 1s;
 }
 
 // progressBar animation
@@ -21,6 +21,7 @@
   height: 3px;
   width: 100%;
   background-color: #f1f1f1;
+  border-radius: 20px;
 }
 
 /* The progress container (grey background) */

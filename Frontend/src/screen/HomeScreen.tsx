@@ -9,7 +9,8 @@ import {
 } from "react-icons/bi";
 import { SiExpress, SiWebpack } from "react-icons/si";
 import { FaNode } from "react-icons/fa";
-import { BsGithub } from "react-icons/bs";
+import { FaGithubAlt } from "react-icons/fa";
+
 import { IoLogoJavascript, IoLogoSass } from "react-icons/io";
 import { AiFillLinkedin, AiFillFacebook } from "react-icons/ai";
 import { BiLogoGmail } from "react-icons/bi";
@@ -72,8 +73,10 @@ export default function HomeScreen() {
             <h3>Yedukrishnan.A</h3>
             <h3>Yedukrishnan.A</h3>
           </div>
-          <h2>MERN Stack Developer</h2>
-          <h5>I build responsive and scalable web apps.</h5>
+          <h2>Software Developer</h2>
+          <h5>
+            I build responsive and scalable web apps <div>MERN</div>
+          </h5>
         </div>
       </section>
       <section className="home__skills hide">
@@ -118,7 +121,7 @@ export default function HomeScreen() {
               <span>Redux</span>
             </div>
             <div className="home__skills__language__git">
-              <BsGithub />
+              <FaGithubAlt />
               <span>Git</span>
             </div>
           </div>
@@ -137,7 +140,7 @@ export default function HomeScreen() {
         <div className="home__contact__content hideText">
           <div className="home__contact__content__git">
             <a href="https://github.com/LunaticEradicator" target="_blank">
-              <BsGithub />
+              <FaGithubAlt />
             </a>
             <div className="home__contact__content__git__hover">
               https://github.com/LunaticEradicator

@@ -14,7 +14,7 @@ $lowerWidth: 300px;
 
   h1 {
     // color: #333;
-    padding-bottom: 8px;
+    padding-bottom: 7px;
     font-size: 5rem;
     font-weight: 100;
     line-height: 1;
@@ -26,6 +26,7 @@ $lowerWidth: 300px;
     text-align: center;
     margin: 0;
     // border: 1px solid white;
+
     @include ut.breakpoint(medium) {
       width: $lowerWidth;
       line-height: 1.5;
@@ -39,11 +40,9 @@ $lowerWidth: 300px;
   }
 
   .message {
-    // background-color: yellow;
-    // color: #fdfdfd;
-    color: #333;
+    color: rgb(48, 48, 48);
     display: block;
-    font-weight: 900;
+    font-weight: bold;
     overflow: hidden;
     position: absolute;
     padding-left: 0.5rem;
@@ -57,16 +56,12 @@ $lowerWidth: 300px;
   }
   .word2 {
     margin-bottom: 5px;
-    @include ut.breakpoint(larger) {
-      margin-bottom: 2px;
-    }
+
     @include ut.breakpoint(medium) {
       margin-bottom: 15px;
     }
   }
-  // .word1 {
-  //   font-family: animeace2;
-  // }
+
   .word1,
   .word2,
   .word3 {
@@ -81,6 +76,11 @@ $lowerWidth: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: rgb(48, 48, 48);
+    // color: white;
+    // text-shadow: 2px 2px 0px rgb(255, 40, 80), -1px -1px 0 rgb(255, 40, 80),
+    //   1px -1px 0 rgb(255, 40, 80), -1px 1px 0 rgb(255, 40, 80),
+    //   1px 1px 0 rgb(255, 40, 80);
   }
 
   @keyframes openClose {
